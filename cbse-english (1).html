@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CBSE Class 12 English — Board Prep</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f5f5f7;
+    --surface: #ffffff;
+    --surface2: #f0f0f2;
+    --border: rgba(0,0,0,0.08);
+    --text: #1d1d1f;
+    --text2: #515154;
+    --text3: #86868b;
+    --accent: #0066cc;
+    --accent-soft: #e8f0fc;
+    --green: #1a7f4b;
+    --green-soft: #e6f4ed;
+    --amber: #b45309;
+    --amber-soft: #fef3c7;
+    --red: #c0392b;
+    --red-soft: #fdecea;
+    --purple: #6d28d9;
+    --purple-soft: #ede9fe;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+    --shadow: 0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+    --shadow-lg: 0 12px 40px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.06);
+    --radius: 12px;
+    --radius-sm: 8px;
+    --sidebar-width: 260px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    position: fixed;
+    left: 0; top: 0;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    overflow-y: auto;
+  }
+
+  .sidebar-header {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .sidebar-logo {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 4px;
+  }
+
+  .logo-dot {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, #0066cc, #5ac8fa);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: white;
+  }
+
+  .sidebar-title { font-size: 15px; font-weight: 600; color: var(--text); }
+  .sidebar-sub { font-size: 12px; color: var(--text3); margin-top: 2px; }
+
+  .sidebar-section { padding: 12px 10px 4px; }
+  .sidebar-section-label {
+    font-size: 10px; font-weight: 600; color: var(--text3);
+    text-transform: uppercase; letter-spacing: 0.8px;
+    padding: 0 8px; margin-bottom: 4px;
+  }
+
+  .nav-item {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: all 0.15s;
+    font-size: 13.5px;
+    font-weight: 450;
+    color: var(--text2);
+    user-select: none;
+  }
+  .nav-item:hover { background: var(--surface2); color: var(--text); }
+  .nav-item.active { background: var(--accent-soft); color: var(--accent); font-weight: 500; }
+  .nav-icon { font-size: 15px; width: 20px; text-align: center; }
+  .nav-badge {
+    margin-left: auto;
+    font-size: 10px; font-weight: 600;
+    background: var(--accent);
+    color: white;
+    border-radius: 10px;
+    padding: 1px 6px;
+  }
+
+  .nav-item.active .nav-badge { background: var(--accent); }
+
+  /* MAIN CONTENT */
+  .main {
+    margin-left: var(--sidebar-width);
+    flex: 1;
+    min-height: 100vh;
+  }
+
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245,245,247,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 14px 40px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+
+  .topbar-breadcrumb {
+    font-size: 13px; color: var(--text3);
+    display: flex; align-items: center; gap: 6px;
+  }
+  .topbar-breadcrumb span { color: var(--text); font-weight: 500; }
+
+  .topbar-score {
+    display: flex; align-items: center; gap: 8px;
+    background: var(--green-soft);
+    color: var(--green);
+    font-size: 12px; font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(26,127,75,0.15);
+  }
+
+  .content { padding: 40px; max-width: 860px; }
+
+  /* SECTION PAGES */
+  .page { display: none; }
+  .page.active { display: block; animation: fadeUp 0.3s ease; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page-header { margin-bottom: 32px; }
+  .page-tag {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 600; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px; border-radius: 20px;
+    margin-bottom: 10px;
+  }
+  .page-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 34px; line-height: 1.2;
+    color: var(--text); margin-bottom: 8px;
+  }
+  .page-desc { font-size: 15px; color: var(--text2); max-width: 560px; line-height: 1.6; }
+
+  /* MARKS BADGE */
+  .marks-row {
+    display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+  }
+  .marks-chip {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px; font-weight: 500;
+    border: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .marks-chip.marks { background: var(--amber-soft); color: var(--amber); border-color: rgba(180,83,9,0.15); }
+  .marks-chip.words { background: var(--purple-soft); color: var(--purple); border-color: rgba(109,40,217,0.15); }
+  .marks-chip.time { background: var(--green-soft); color: var(--green); border-color: rgba(26,127,75,0.15); }
+
+  /* CARDS */
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .card-title {
+    font-size: 13px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.6px;
+    color: var(--text3);
+    margin-bottom: 16px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .card-title::before {
+    content: '';
+    display: inline-block;
+    width: 3px; height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  /* FORMAT BOX */
+  .format-box {
+    background: #f8faff;
+    border: 1px solid rgba(0,102,204,0.12);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-sm);
+    padding: 20px 22px;
+    margin-bottom: 20px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12.5px;
+    line-height: 1.9;
+    color: var(--text2);
+  }
+  .format-box .label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--accent); margin-bottom: 8px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .format-line { display: flex; gap: 12px; margin: 1px 0; }
+  .format-key { color: var(--accent); font-weight: 600; min-width: 200px; }
+  .format-val { color: var(--text2); }
+
+  /* EXAMPLE LETTER */
+  .letter-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    position: relative;
+    box-shadow: var(--shadow-sm);
+  }
+  .letter-box .ex-tag {
+    position: absolute; top: -1px; right: 20px;
+    background: var(--accent);
+    color: white;
+    font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    padding: 4px 10px;
+    border-radius: 0 0 8px 8px;
+  }
+  .letter-content {
+    font-size: 14px;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .letter-content .addr { color: var(--text2); font-size: 13.5px; }
+  .letter-content .subject { font-weight: 600; }
+  .letter-content .para { margin: 12px 0; }
+  .letter-content .indent { padding-left: 0; }
+  .letter-content hr { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  /* TIPS */
+  .tips-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .tip {
+    background: var(--surface2);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 13.5px;
+    display: flex; gap: 10px; align-items: flex-start;
+  }
+  .tip-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+  .tip-text { color: var(--text2); line-height: 1.5; }
+  .tip-text strong { color: var(--text); display: block; margin-bottom: 2px; font-size: 13px; }
+
+  /* PRACTICE */
+  .question-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+  }
+  .question-card:hover { box-shadow: var(--shadow); }
+
+  .question-header {
+    padding: 16px 20px;
+    display: flex; gap: 14px; align-items: flex-start;
+    cursor: pointer;
+  }
+  .q-num {
+    width: 28px; height: 28px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 700;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .q-text { flex: 1; font-size: 14px; color: var(--text); line-height: 1.55; }
+  .q-toggle {
+    color: var(--text3); font-size: 18px; flex-shrink: 0;
+    transition: transform 0.2s;
+    margin-top: 2px;
+  }
+  .question-card.open .q-toggle { transform: rotate(180deg); }
+
+  .question-answer {
+    display: none;
+    padding: 0 20px 20px 62px;
+    border-top: 1px solid var(--border);
+  }
+  .question-card.open .question-answer { display: block; }
+  .answer-label {
+    font-size: 10px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.8px; color: var(--green);
+    margin: 14px 0 8px;
+  }
+  .answer-content {
+    font-size: 13.5px; color: var(--text2); line-height: 1.7;
+  }
+  .answer-content .letter-mini {
+    background: var(--surface2);
+    border-radius: var(--radius-sm);
+    padding: 14px 16px;
+    font-size: 13px;
+    margin-top: 10px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+
+  /* PASSAGE */
+  .passage-text {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;
+    font-size: 14.5px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+  }
+  .passage-text p { margin-bottom: 14px; }
+  .passage-text p:last-child { margin-bottom: 0; }
+  .para-num {
+    display: inline-block;
+    width: 22px; height: 22px;
+    background: var(--accent);
+    color: white;
+    border-radius: 50%;
+    font-size: 10px; font-weight: 700;
+    text-align: center; line-height: 22px;
+    margin-right: 6px; flex-shrink: 0;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex; gap: 2px;
+    background: var(--surface2);
+    padding: 4px;
+    border-radius: 10px;
+    margin-bottom: 24px;
+    width: fit-content;
+  }
+  .tab {
+    padding: 7px 16px;
+    border-radius: 8px;
+    font-size: 13px; font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    color: var(--text2);
+    user-select: none;
+  }
+  .tab.active {
+    background: var(--surface);
+    color: var(--text);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; animation: fadeUp 0.2s ease; }
+
+  /* HOME */
+  .home-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; }
+  .home-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 22px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  .home-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .home-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-2px); }
+  .home-card-icon { font-size: 28px; margin-bottom: 12px; }
+  .home-card-title { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .home-card-desc { font-size: 13px; color: var(--text2); line-height: 1.5; }
+  .home-card-marks {
+    margin-top: 12px;
+    display: inline-block;
+    font-size: 11px; font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 3px 8px; border-radius: 6px;
+  }
+
+  .home-hero {
+    background: linear-gradient(135deg, #0066cc 0%, #5ac8fa 100%);
+    border-radius: var(--radius);
+    padding: 32px;
+    color: white;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .home-hero::before {
+    content: '';
+    position: absolute;
+    width: 300px; height: 300px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    top: -100px; right: -60px;
+  }
+  .home-hero::after {
+    content: '';
+    position: absolute;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+    bottom: -80px; right: 80px;
+  }
+  .home-hero h1 { font-family: 'DM Serif Display', serif; font-size: 30px; margin-bottom: 8px; }
+  .home-hero p { font-size: 14px; opacity: 0.85; max-width: 400px; line-height: 1.6; }
+  .hero-chips { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+  .hero-chip {
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 11px; font-weight: 500;
+    padding: 4px 10px; border-radius: 20px;
+    backdrop-filter: blur(4px);
+  }
+
+  .section-divider { 
+    border: none; border-top: 1px solid var(--border); 
+    margin: 28px 0;
+  }
+
+  .highlight { background: #fff3cd; padding: 1px 3px; border-radius: 3px; }
+
+  ul.check-list { list-style: none; padding: 0; }
+  ul.check-list li {
+    padding: 5px 0;
+    display: flex; gap: 8px; align-items: flex-start;
+    font-size: 14px; color: var(--text2);
+  }
+  ul.check-list li::before { content: '✓'; color: var(--green); font-weight: 700; flex-shrink: 0; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .do-dont { border-radius: var(--radius-sm); padding: 16px; font-size: 13.5px; }
+  .do-dont.do { background: var(--green-soft); border: 1px solid rgba(26,127,75,0.15); }
+  .do-dont.dont { background: var(--red-soft); border: 1px solid rgba(192,57,43,0.15); }
+  .do-dont h4 { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 8px; }
+  .do-dont.do h4 { color: var(--green); }
+  .do-dont.dont h4 { color: var(--red); }
+  .do-dont li { margin: 4px 0; color: var(--text2); line-height: 1.5; list-style: none; padding-left: 14px; position: relative; }
+  .do-dont.do li::before { content: '✓'; color: var(--green); position: absolute; left: 0; }
+  .do-dont.dont li::before { content: '✗'; color: var(--red); position: absolute; left: 0; }
+
+  .scoring-table {
+    width: 100%; border-collapse: collapse;
+    font-size: 13.5px;
+  }
+  .scoring-table th {
+    background: var(--surface2); text-align: left;
+    padding: 10px 14px; font-weight: 600; font-size: 12px;
+    color: var(--text2);
+    border-bottom: 1px solid var(--border);
+  }
+  .scoring-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text2);
+    vertical-align: top;
+  }
+  .scoring-table tr:last-child td { border-bottom: none; }
+  .score-chip {
+    background: var(--accent-soft); color: var(--accent);
+    font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 6px; display: inline-block;
+  }
+
+  @media(max-width:768px){
+    .sidebar { transform: translateX(-100%); }
+    .main { margin-left: 0; }
+    .content { padding: 20px; }
+    .home-grid { grid-template-columns: 1fr; }
+    .tips-grid { grid-template-columns: 1fr; }
+    .two-col { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-logo">
+      <div class="logo-dot">E</div>
+      <div>
+        <div class="sidebar-title">English Board Prep</div>
+        <div class="sidebar-sub">CBSE Class XII</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Overview</div>
+    <div class="nav-item active" onclick="showPage('home')">
+      <span class="nav-icon">🏠</span> Home
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Reading</div>
+    <div class="nav-item" onclick="showPage('passage1')">
+      <span class="nav-icon">📖</span> Reading Passage I
+    </div>
+    <div class="nav-item" onclick="showPage('passage2')">
+      <span class="nav-icon">📝</span> Reading Passage II
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Writing</div>
+    <div class="nav-item" onclick="showPage('notice')">
+      <span class="nav-icon">📌</span> Notice Writing
+    </div>
+    <div class="nav-item" onclick="showPage('formal-letter')">
+      <span class="nav-icon">✉️</span> Formal Letter
+    </div>
+    <div class="nav-item" onclick="showPage('job-application')">
+      <span class="nav-icon">💼</span> Job Application <span class="nav-badge">★</span>
+    </div>
+    <div class="nav-item" onclick="showPage('article')">
+      <span class="nav-icon">✏️</span> Article Writing
+    </div>
+    <div class="nav-item" onclick="showPage('speech')">
+      <span class="nav-icon">🎙️</span> Speech Writing
+    </div>
+    <div class="nav-item" onclick="showPage('debate')">
+      <span class="nav-icon">⚖️</span> Debate Writing
+    </div>
+    <div class="nav-item" onclick="showPage('report')">
+      <span class="nav-icon">📋</span> Report Writing
+    </div>
+  </div>
+
+  <div class="sidebar-section">
+    <div class="sidebar-section-label">Practice</div>
+    <div class="nav-item" onclick="showPage('practice')">
+      <span class="nav-icon">🎯</span> Practice Questions
+    </div>
+  </div>
+</aside>
+
+<!-- MAIN -->
+<main class="main">
+  <div class="topbar">
+    <div class="topbar-breadcrumb">
+      CBSE Class XII › English Core (301) › <span id="breadcrumb">Home</span>
+    </div>
+    <div class="topbar-score">🎯 Target: Full Marks</div>
+  </div>
+
+  <div class="content">
+
+    <!-- HOME PAGE -->
+    <div class="page active" id="page-home">
+      <div class="home-hero">
+        <h1>Ace Your English Board</h1>
+        <p>Complete preparation guide for CBSE Class 12 English Core. Formats, examples, tips, and practice questions — all in one place.</p>
+        <div class="hero-chips">
+          <div class="hero-chip">📚 Writing Section</div>
+          <div class="hero-chip">📖 Reading Section</div>
+          <div class="hero-chip">🎯 Exam Tips</div>
+          <div class="hero-chip">✅ Full Marks Strategy</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Paper Pattern at a Glance</div>
+        <table class="scoring-table">
+          <thead>
+            <tr><th>Section</th><th>Topics</th><th>Marks</th><th>Time Tip</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>A – Reading</td><td>2 Unseen Passages</td><td><span class="score-chip">22</span></td><td>35 min</td></tr>
+            <tr><td>B – Writing</td><td>Notice, Letter/Application, Article/Speech/Debate, Report</td><td><span class="score-chip">18</span></td><td>50 min</td></tr>
+            <tr><td>C – Literature</td><td>Prose, Poetry, Supplementary</td><td><span class="score-chip">40</span></td><td>55 min</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="home-grid">
+        <div class="home-card" onclick="showPage('job-application')">
+          <div class="home-card-icon">💼</div>
+          <div class="home-card-title">Job Application</div>
+          <div class="home-card-desc">Perfect format, 2 scored examples, common mistakes to avoid.</div>
+          <div class="home-card-marks">5 Marks</div>
+        </div>
+        <div class="home-card" onclick="showPage('article')">
+          <div class="home-card-icon">✏️</div>
+          <div class="home-card-title">Article Writing</div>
+          <div class="home-card-desc">Structure, vocabulary tips, and 2 full sample articles.</div>
+          <div class="home-card-marks">6 Marks</div>
+        </div>
+        <div class="home-card" onclick="showPage('passage1')">
+          <div class="home-card-icon">📖</div>
+          <div class="home-card-title">Reading Passages</div>
+          <div class="home-card-desc">Factual & discursive passages with MCQs and note-making.</div>
+          <div class="home-card-marks">22 Marks</div>
+        </div>
+        <div class="home-card" onclick="showPage('speech')">
+          <div class="home-card-icon">🎙️</div>
+          <div class="home-card-title">Speech & Debate</div>
+          <div class="home-card-desc">Opening lines, structure, persuasion language bank.</div>
+          <div class="home-card-marks">6 Marks</div>
+        </div>
+        <div class="home-card" onclick="showPage('notice')">
+          <div class="home-card-icon">📌</div>
+          <div class="home-card-title">Notice Writing</div>
+          <div class="home-card-desc">Crisp format, do's & don'ts, practice questions.</div>
+          <div class="home-card-marks">4 Marks</div>
+        </div>
+        <div class="home-card" onclick="showPage('practice')">
+          <div class="home-card-icon">🎯</div>
+          <div class="home-card-title">Practice Questions</div>
+          <div class="home-card-desc">Topic-wise practice with model answers to check yourself.</div>
+          <div class="home-card-marks">All Topics</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JOB APPLICATION PAGE -->
+    <div class="page" id="page-job-application">
+      <div class="page-header">
+        <div class="page-tag">✉️ Writing Section</div>
+        <h1 class="page-title">Job Application Letter</h1>
+        <p class="page-desc">A formal letter applying for a job advertised in a newspaper or otherwise. Tests your ability to present yourself professionally in writing.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 5 Marks</div>
+          <div class="marks-chip words">📝 ~150 words</div>
+          <div class="marks-chip time">⏱ 10–12 min</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'job-format')">Format</div>
+        <div class="tab" onclick="switchTab(this,'job-biodata')">Bio-Data ★</div>
+        <div class="tab" onclick="switchTab(this,'job-examples')">Full Examples</div>
+        <div class="tab" onclick="switchTab(this,'job-scoring')">Scoring</div>
+        <div class="tab" onclick="switchTab(this,'job-tips')">Tips & Traps</div>
+      </div>
+
+      <!-- FORMAT TAB -->
+      <div class="tab-content active" id="tab-job-format">
+        <div class="card">
+          <div class="card-title">Perfect Format — Step by Step</div>
+          <div class="format-box">
+            <div class="label">Job Application Letter Template</div>
+            <div class="format-line"><span class="format-key">Sender's Address</span><span class="format-val">Your full address (3–4 lines)</span></div>
+            <div class="format-line"><span class="format-key">Date</span><span class="format-val">Day Month Year (e.g., 10 March 2026)</span></div>
+            <div class="format-line"><span class="format-key">Receiver's Address</span><span class="format-val">The Hiring Manager / HR Manager</span></div>
+            <div class="format-line"><span class="format-key"></span><span class="format-val">Name of Company / Organization</span></div>
+            <div class="format-line"><span class="format-key"></span><span class="format-val">City — Pincode</span></div>
+            <div class="format-line"><span class="format-key">Subject</span><span class="format-val">Application for the post of [Job Title]</span></div>
+            <div class="format-line"><span class="format-key">Salutation</span><span class="format-val">Sir / Madam,</span></div>
+            <br>
+            <div class="format-line"><span class="format-key">Para 1 (Opening)</span><span class="format-val">Source of info + post applied for + desire to apply</span></div>
+            <div class="format-line"><span class="format-key">Para 2 (Credentials)</span><span class="format-val">Qualifications + marks/grade + skills + experience</span></div>
+            <div class="format-line"><span class="format-key">Para 3 (Closing)</span><span class="format-val">Express eagerness + request interview + reference to CV</span></div>
+            <br>
+            <div class="format-line"><span class="format-key">Complimentary Close</span><span class="format-val">Yours faithfully,</span></div>
+            <div class="format-line"><span class="format-key">Signature</span><span class="format-val">[Your Name]</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Key Rules — Never Break These</div>
+          <div class="two-col">
+            <div class="do-dont do">
+              <h4>✓ Always Do</h4>
+              <ul>
+                <li>Mention the exact source (e.g., "The Hindu, 10 March 2026")</li>
+                <li>Use "Yours faithfully" (not sincerely, for unknown person)</li>
+                <li>Mention enclosure of Bio-Data / CV</li>
+                <li>Write in formal, impersonal language</li>
+                <li>Keep each paragraph focused on one idea</li>
+              </ul>
+            </div>
+            <div class="do-dont dont">
+              <h4>✗ Never Do</h4>
+              <ul>
+                <li>Don't use "I" in the Subject line</li>
+                <li>Don't write in casual/informal language</li>
+                <li>Don't skip the Sender's or Receiver's address</li>
+                <li>Don't use "Yours sincerely" for strangers</li>
+                <li>Don't forget to mention the post name in Subject</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- BIO-DATA TAB -->
+      <div class="tab-content" id="tab-job-biodata">
+        <div class="card">
+          <div class="card-title">What is a Bio-Data?</div>
+          <p style="font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:14px;">In CBSE Class 12, after writing the application letter, you <strong>must write the Bio-Data as a separate enclosure</strong> in the same answer. It is a structured personal profile of the applicant. It is written below the letter, clearly marked, and is worth marks in the content section.</p>
+          <div style="background:var(--amber-soft);border:1px solid rgba(180,83,9,0.2);border-radius:var(--radius-sm);padding:14px 16px;font-size:13.5px;color:var(--amber);">
+            ⚠️ <strong>CBSE Rule:</strong> The Bio-Data must be written as part of your answer. Writing only "Enc: Bio-Data" without actually writing it can cost you 1–2 marks in content.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Bio-Data Format — Standard CBSE</div>
+          <div class="format-box">
+            <div class="label">Bio-Data / Curriculum Vitae Template</div>
+            <div style="text-align:center;font-weight:700;font-size:13px;margin-bottom:10px;color:var(--text);">BIO-DATA</div>
+            <div class="format-line"><span class="format-key">Name</span><span class="format-val">: Full name of applicant</span></div>
+            <div class="format-line"><span class="format-key">Father's Name</span><span class="format-val">: Father's full name</span></div>
+            <div class="format-line"><span class="format-key">Date of Birth</span><span class="format-val">: DD Month YYYY</span></div>
+            <div class="format-line"><span class="format-key">Nationality</span><span class="format-val">: Indian</span></div>
+            <div class="format-line"><span class="format-key">Marital Status</span><span class="format-val">: Single / Married</span></div>
+            <div class="format-line"><span class="format-key">Address</span><span class="format-val">: Permanent residential address</span></div>
+            <div class="format-line"><span class="format-key">Contact No.</span><span class="format-val">: Mobile number</span></div>
+            <div class="format-line"><span class="format-key">E-mail</span><span class="format-val">: email@example.com</span></div>
+            <br>
+            <div style="font-weight:700;color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">EDUCATIONAL QUALIFICATIONS</div>
+            <div class="format-line"><span class="format-key">Examination</span><span class="format-val">Board/University | Year | % / Grade</span></div>
+            <div class="format-line"><span class="format-key">Class XII</span><span class="format-val">CBSE | 2026 | ___% (Appearing)</span></div>
+            <div class="format-line"><span class="format-key">Class X</span><span class="format-val">CBSE | 2024 | ___%</span></div>
+            <div class="format-line"><span class="format-key">Degree (if any)</span><span class="format-val">University | Year | ___%</span></div>
+            <br>
+            <div style="font-weight:700;color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">SKILLS &amp; COMPETENCIES</div>
+            <div class="format-line"><span class="format-key">Computer Skills</span><span class="format-val">: MS Office, Tally, etc.</span></div>
+            <div class="format-line"><span class="format-key">Languages Known</span><span class="format-val">: English, Hindi, [others]</span></div>
+            <div class="format-line"><span class="format-key">Other Skills</span><span class="format-val">: Communication, Leadership, etc.</span></div>
+            <br>
+            <div style="font-weight:700;color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">EXPERIENCE (if any)</div>
+            <div class="format-line"><span class="format-key">Organisation</span><span class="format-val">: Role | Duration</span></div>
+            <br>
+            <div style="font-weight:700;color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">ACHIEVEMENTS / CO-CURRICULAR</div>
+            <div class="format-line"><span class="format-key">–</span><span class="format-val">List achievements, awards, positions held</span></div>
+            <br>
+            <div style="font-weight:700;color:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:4px;">REFERENCES</div>
+            <div class="format-line"><span class="format-key">–</span><span class="format-val">Name, Designation, Organisation, Contact (optional in CBSE)</span></div>
+            <br>
+            <div class="format-line"><span class="format-key">Declaration</span><span class="format-val">: I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief.</span></div>
+            <br>
+            <div class="format-line"><span class="format-key">Place:</span><span class="format-val">___________</span></div>
+            <div class="format-line"><span class="format-key">Date:</span><span class="format-val">___________&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(Signature)</span></div>
+            <div class="format-line"><span class="format-key"></span><span class="format-val">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Name]</span></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Bio-Data — Filled Example (Content Writer Post)</div>
+          <div class="letter-box" style="margin-bottom:0;">
+            <div class="letter-content">
+              <div style="text-align:center;font-weight:800;font-size:16px;letter-spacing:1.5px;margin-bottom:16px;border-bottom:2px solid var(--border);padding-bottom:12px;">BIO-DATA</div>
+
+              <table style="width:100%;font-size:13.5px;border-collapse:collapse;">
+                <tr><td style="padding:5px 0;color:var(--text3);width:42%;font-weight:500;">Name</td><td style="padding:5px 0;color:var(--text);">: Aryan Sharma</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Father's Name</td><td style="padding:5px 0;color:var(--text);">: Mr. Ramesh Sharma</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Date of Birth</td><td style="padding:5px 0;color:var(--text);">: 14 July 2007</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Nationality</td><td style="padding:5px 0;color:var(--text);">: Indian</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Marital Status</td><td style="padding:5px 0;color:var(--text);">: Single</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Permanent Address</td><td style="padding:5px 0;color:var(--text);">: 12, Ashok Vihar, New Delhi – 110052</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Contact No.</td><td style="padding:5px 0;color:var(--text);">: 98XXXXXX12</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">E-mail</td><td style="padding:5px 0;color:var(--text);">: aryan.sharma@email.com</td></tr>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Educational Qualifications</div>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                <thead><tr style="color:var(--text3);font-size:11.5px;font-weight:600;">
+                  <th style="text-align:left;padding:5px 0;">Examination</th>
+                  <th style="text-align:left;padding:5px 0;">Board</th>
+                  <th style="text-align:left;padding:5px 0;">Year</th>
+                  <th style="text-align:left;padding:5px 0;">Result</th>
+                </tr></thead>
+                <tbody style="color:var(--text2);">
+                  <tr>
+                    <td style="padding:5px 0;">Class XII (CBSE)</td>
+                    <td style="padding:5px 0;">CBSE</td>
+                    <td style="padding:5px 0;">2026</td>
+                    <td style="padding:5px 0;">Appearing (95% in English)</td>
+                  </tr>
+                  <tr>
+                    <td style="padding:5px 0;">Class X (CBSE)</td>
+                    <td style="padding:5px 0;">CBSE</td>
+                    <td style="padding:5px 0;">2024</td>
+                    <td style="padding:5px 0;">92%</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Skills &amp; Competencies</div>
+              <table style="width:100%;font-size:13.5px;border-collapse:collapse;color:var(--text2);">
+                <tr><td style="padding:4px 0;width:42%;color:var(--text3);font-weight:500;">Computer Skills</td><td style="padding:4px 0;">: MS Word, MS Excel, WordPress, Basic SEO</td></tr>
+                <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Languages Known</td><td style="padding:4px 0;">: English (Fluent), Hindi (Native)</td></tr>
+                <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Other Skills</td><td style="padding:4px 0;">: Creative Writing, Editing, Research, Communication</td></tr>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Co-Curricular Achievements</div>
+              <div style="font-size:13.5px;color:var(--text2);line-height:2;">
+                • Editor, School Magazine <em>Vani</em> (2024–25 &amp; 2025–26)<br>
+                • Winner, Inter-School English Essay Writing Competition (2025)<br>
+                • Active member, School Debate Club — represented school at zonal level
+              </div>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Declaration</div>
+              <div style="font-size:13px;color:var(--text2);line-height:1.7;">I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief.</div>
+
+              <div style="margin-top:20px;display:flex;justify-content:space-between;font-size:13.5px;color:var(--text2);">
+                <div>Place: New Delhi<br>Date: 10 March 2026</div>
+                <div style="text-align:right;">__________________<br><strong>Aryan Sharma</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Bio-Data — Filled Example 2 (Teacher Post)</div>
+          <div class="letter-box" style="margin-bottom:0;">
+            <div class="letter-content">
+              <div style="text-align:center;font-weight:800;font-size:16px;letter-spacing:1.5px;margin-bottom:16px;border-bottom:2px solid var(--border);padding-bottom:12px;">BIO-DATA</div>
+
+              <table style="width:100%;font-size:13.5px;border-collapse:collapse;">
+                <tr><td style="padding:5px 0;color:var(--text3);width:42%;font-weight:500;">Name</td><td style="padding:5px 0;color:var(--text);">: Priya Desai</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Father's Name</td><td style="padding:5px 0;color:var(--text);">: Mr. Suresh Desai</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Date of Birth</td><td style="padding:5px 0;color:var(--text);">: 3 September 2000</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Nationality</td><td style="padding:5px 0;color:var(--text);">: Indian</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Marital Status</td><td style="padding:5px 0;color:var(--text);">: Single</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Permanent Address</td><td style="padding:5px 0;color:var(--text);">: 47-B, MG Road, Pune – 411001</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Contact No.</td><td style="padding:5px 0;color:var(--text);">: 91XXXXXX44</td></tr>
+                <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">E-mail</td><td style="padding:5px 0;color:var(--text);">: priya.desai@email.com</td></tr>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Educational Qualifications</div>
+              <table style="width:100%;font-size:13px;border-collapse:collapse;">
+                <thead><tr style="color:var(--text3);font-size:11.5px;font-weight:600;">
+                  <th style="text-align:left;padding:5px 0;">Examination</th>
+                  <th style="text-align:left;padding:5px 0;">Board / University</th>
+                  <th style="text-align:left;padding:5px 0;">Year</th>
+                  <th style="text-align:left;padding:5px 0;">Result</th>
+                </tr></thead>
+                <tbody style="color:var(--text2);">
+                  <tr><td style="padding:5px 0;">B.Ed. (Science)</td><td style="padding:5px 0;">SPPU, Pune</td><td style="padding:5px 0;">2025</td><td style="padding:5px 0;">First Division</td></tr>
+                  <tr><td style="padding:5px 0;">B.Sc. (PCM)</td><td style="padding:5px 0;">SPPU, Pune</td><td style="padding:5px 0;">2023</td><td style="padding:5px 0;">78% (First Division)</td></tr>
+                  <tr><td style="padding:5px 0;">Class XII</td><td style="padding:5px 0;">Maharashtra Board</td><td style="padding:5px 0;">2020</td><td style="padding:5px 0;">88%</td></tr>
+                  <tr><td style="padding:5px 0;">Class X</td><td style="padding:5px 0;">Maharashtra Board</td><td style="padding:5px 0;">2018</td><td style="padding:5px 0;">91%</td></tr>
+                </tbody>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Teaching Experience</div>
+              <div style="font-size:13.5px;color:var(--text2);line-height:2;">
+                • B.Ed. Internship — DPS Wakad, Pune (2024–25) — Conducted Science classes for Grades VI–IX (6 months)
+              </div>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Skills &amp; Competencies</div>
+              <table style="width:100%;font-size:13.5px;border-collapse:collapse;color:var(--text2);">
+                <tr><td style="padding:4px 0;width:42%;color:var(--text3);font-weight:500;">Computer Skills</td><td style="padding:4px 0;">: MS Office, Smart Board, Google Classroom</td></tr>
+                <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Languages Known</td><td style="padding:4px 0;">: English (Fluent), Hindi, Marathi</td></tr>
+              </table>
+
+              <div style="margin:16px 0 8px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:6px;">Declaration</div>
+              <div style="font-size:13px;color:var(--text2);line-height:1.7;">I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief.</div>
+
+              <div style="margin-top:20px;display:flex;justify-content:space-between;font-size:13.5px;color:var(--text2);">
+                <div>Place: Pune<br>Date: 10 March 2026</div>
+                <div style="text-align:right;">__________________<br><strong>Priya Desai</strong></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="background:var(--green-soft);border-color:rgba(26,127,75,0.2);">
+          <div class="card-title" style="color:var(--green);">Key Rules for Bio-Data in CBSE</div>
+          <ul class="check-list">
+            <li>Write "<strong>BIO-DATA</strong>" as a heading, centred, after the letter — never skip it.</li>
+            <li>The <strong>Educational Qualifications table</strong> must always be present — it's a key content point.</li>
+            <li>If you are a Class XII student applying, write <strong>"2026 — Appearing"</strong> for your current exam.</li>
+            <li>The <strong>Declaration</strong> line is mandatory — examiners look for it.</li>
+            <li>End with Place, Date, and your <strong>Signature + Name</strong>.</li>
+            <li>Keep it to <strong>one page equivalent</strong> — don't over-pad, don't under-write.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- EXAMPLES TAB -->
+      <div class="tab-content" id="tab-job-examples">
+        <div style="background:var(--accent-soft);border:1px solid rgba(0,102,204,0.15);border-radius:var(--radius-sm);padding:12px 16px;margin-bottom:16px;font-size:13.5px;color:var(--accent);">
+          💡 <strong>In the CBSE exam, the Bio-Data is written immediately after the letter as the enclosure.</strong> Both together form one complete answer.
+        </div>
+
+        <div class="letter-box">
+          <div class="ex-tag">Example 1 — Full Answer</div>
+          <div class="letter-content">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:10px;">Part A: The Application Letter</div>
+            <div class="addr">
+              12, Ashok Vihar<br>
+              New Delhi – 110052
+            </div>
+            <div style="margin:10px 0;">10 March 2026</div>
+            <div class="addr">
+              The Human Resources Manager<br>
+              Sunrise Technologies Pvt. Ltd.<br>
+              Connaught Place, New Delhi – 110001
+            </div>
+            <hr>
+            <div><strong>Subject:</strong> <span class="subject">Application for the post of Content Writer</span></div>
+            <hr>
+            <div>Sir / Madam,</div>
+            <div class="para">I am writing to apply for the post of <strong>Content Writer</strong> advertised in <em>The Hindu</em> dated <strong>8 March 2026</strong>. I believe my academic background and passion for writing make me an ideal candidate for this position.</div>
+            <div class="para">I recently appeared for my CBSE Class XII examinations and scored <strong>95% in English Core</strong>. I have consistently demonstrated strong writing skills and have contributed articles to my school magazine for two consecutive years. I am proficient in MS Office and have a working knowledge of basic SEO practices.</div>
+            <div class="para">I am enthusiastic about contributing meaningfully to your organisation and am eager to learn and grow in a professional environment. I have enclosed my Bio-Data for your kind perusal. I shall be grateful if you consider my application and grant me an opportunity to appear for an interview at your convenience.</div>
+            <div style="margin-top:16px;">Yours faithfully,</div>
+            <div><strong>Aryan Sharma</strong></div>
+            <div style="margin-top:8px;font-size:12.5px;color:var(--text3);">Enc: Bio-Data</div>
+
+            <hr style="margin:24px 0;border-top:2px dashed var(--border);">
+
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:14px;">Part B: Bio-Data (Enclosure)</div>
+
+            <div style="text-align:center;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:16px;border-bottom:2px solid var(--border);padding-bottom:10px;">BIO-DATA</div>
+
+            <table style="width:100%;font-size:13.5px;border-collapse:collapse;">
+              <tr><td style="padding:5px 0;color:var(--text3);width:42%;font-weight:500;">Name</td><td style="padding:5px 0;">: Aryan Sharma</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Father's Name</td><td style="padding:5px 0;">: Mr. Ramesh Sharma</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Date of Birth</td><td style="padding:5px 0;">: 14 July 2007</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Nationality</td><td style="padding:5px 0;">: Indian</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Marital Status</td><td style="padding:5px 0;">: Single</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Permanent Address</td><td style="padding:5px 0;">: 12, Ashok Vihar, New Delhi – 110052</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Contact No.</td><td style="padding:5px 0;">: 98XXXXXX12</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">E-mail</td><td style="padding:5px 0;">: aryan.sharma@email.com</td></tr>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Educational Qualifications</div>
+            <table style="width:100%;font-size:13px;border-collapse:collapse;">
+              <thead><tr style="color:var(--text3);font-size:11.5px;font-weight:600;">
+                <th style="text-align:left;padding:5px 0;">Examination</th>
+                <th style="text-align:left;padding:5px 0;">Board</th>
+                <th style="text-align:left;padding:5px 0;">Year</th>
+                <th style="text-align:left;padding:5px 0;">Result</th>
+              </tr></thead>
+              <tbody style="color:var(--text2);">
+                <tr><td style="padding:5px 0;">Class XII</td><td>CBSE</td><td>2026</td><td>Appearing (95% English)</td></tr>
+                <tr><td style="padding:5px 0;">Class X</td><td>CBSE</td><td>2024</td><td>92%</td></tr>
+              </tbody>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Skills &amp; Competencies</div>
+            <table style="width:100%;font-size:13.5px;border-collapse:collapse;color:var(--text2);">
+              <tr><td style="padding:4px 0;width:42%;color:var(--text3);font-weight:500;">Computer Skills</td><td>: MS Word, MS Excel, WordPress, Basic SEO</td></tr>
+              <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Languages Known</td><td>: English (Fluent), Hindi (Native)</td></tr>
+              <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Other Skills</td><td>: Creative Writing, Editing, Content Research</td></tr>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Co-Curricular Achievements</div>
+            <div style="font-size:13.5px;color:var(--text2);line-height:2.1;">
+              • Editor, School Magazine <em>Vani</em> (2024–25 &amp; 2025–26)<br>
+              • Winner, Inter-School English Essay Writing Competition (2025)<br>
+              • Member, School Debate Club — Zonal Level Participant
+            </div>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Declaration</div>
+            <div style="font-size:13px;color:var(--text2);">I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief.</div>
+            <div style="margin-top:18px;display:flex;justify-content:space-between;font-size:13.5px;color:var(--text2);">
+              <div>Place: New Delhi<br>Date: 10 March 2026</div>
+              <div style="text-align:right;">__________________<br><strong>Aryan Sharma</strong></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="letter-box">
+          <div class="ex-tag">Example 2 — Full Answer</div>
+          <div class="letter-content">
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:10px;">Part A: The Application Letter</div>
+            <div class="addr">
+              47-B, MG Road<br>
+              Pune – 411001
+            </div>
+            <div style="margin:10px 0;">10 March 2026</div>
+            <div class="addr">
+              The Principal<br>
+              Greenfield Public School<br>
+              Kothrud, Pune – 411038
+            </div>
+            <hr>
+            <div><strong>Subject:</strong> <span class="subject">Application for the post of Junior Science Teacher</span></div>
+            <hr>
+            <div>Madam,</div>
+            <div class="para">With reference to your advertisement published in <em>The Times of India</em> dated <strong>5 March 2026</strong>, I wish to apply for the position of <strong>Junior Science Teacher</strong> in your esteemed institution. I am confident that my academic qualifications and interest in teaching make me suitable for this role.</div>
+            <div class="para">I have completed my B.Sc. (Physics, Chemistry, Mathematics) with <strong>First Division (78%)</strong> from Savitribai Phule Pune University, followed by a B.Ed. degree specialising in Science. During my B.Ed. internship, I successfully conducted classes for Grades VI to IX and received commendation for my engaging teaching methodology.</div>
+            <div class="para">I assure you of my sincerity, dedication, and commitment to academic excellence. Enclosed herewith is my detailed Bio-Data. I would be honoured if you could grant me an interview at a time of your choosing.</div>
+            <div style="margin-top:16px;">Yours faithfully,</div>
+            <div><strong>Priya Desai</strong></div>
+            <div style="margin-top:8px;font-size:12.5px;color:var(--text3);">Enc: Bio-Data</div>
+
+            <hr style="margin:24px 0;border-top:2px dashed var(--border);">
+
+            <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--accent);margin-bottom:14px;">Part B: Bio-Data (Enclosure)</div>
+
+            <div style="text-align:center;font-weight:800;font-size:15px;letter-spacing:2px;margin-bottom:16px;border-bottom:2px solid var(--border);padding-bottom:10px;">BIO-DATA</div>
+
+            <table style="width:100%;font-size:13.5px;border-collapse:collapse;">
+              <tr><td style="padding:5px 0;color:var(--text3);width:42%;font-weight:500;">Name</td><td style="padding:5px 0;">: Priya Desai</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Father's Name</td><td style="padding:5px 0;">: Mr. Suresh Desai</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Date of Birth</td><td style="padding:5px 0;">: 3 September 2000</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Nationality</td><td style="padding:5px 0;">: Indian</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Marital Status</td><td style="padding:5px 0;">: Single</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Permanent Address</td><td style="padding:5px 0;">: 47-B, MG Road, Pune – 411001</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">Contact No.</td><td style="padding:5px 0;">: 91XXXXXX44</td></tr>
+              <tr><td style="padding:5px 0;color:var(--text3);font-weight:500;">E-mail</td><td style="padding:5px 0;">: priya.desai@email.com</td></tr>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Educational Qualifications</div>
+            <table style="width:100%;font-size:13px;border-collapse:collapse;">
+              <thead><tr style="color:var(--text3);font-size:11.5px;font-weight:600;">
+                <th style="text-align:left;padding:5px 0;">Examination</th>
+                <th style="text-align:left;padding:5px 0;">Board / University</th>
+                <th style="text-align:left;padding:5px 0;">Year</th>
+                <th style="text-align:left;padding:5px 0;">Result</th>
+              </tr></thead>
+              <tbody style="color:var(--text2);">
+                <tr><td style="padding:5px 0;">B.Ed. (Science)</td><td>SPPU, Pune</td><td>2025</td><td>First Division</td></tr>
+                <tr><td style="padding:5px 0;">B.Sc. (PCM)</td><td>SPPU, Pune</td><td>2023</td><td>78% (First Division)</td></tr>
+                <tr><td style="padding:5px 0;">Class XII</td><td>Maharashtra Board</td><td>2020</td><td>88%</td></tr>
+                <tr><td style="padding:5px 0;">Class X</td><td>Maharashtra Board</td><td>2018</td><td>91%</td></tr>
+              </tbody>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Teaching Experience</div>
+            <div style="font-size:13.5px;color:var(--text2);line-height:2.1;">
+              • B.Ed. Internship — DPS Wakad, Pune (Aug 2024 – Jan 2025)<br>
+              &nbsp;&nbsp;Conducted Science classes for Grades VI–IX; received commendation for innovative teaching methods.
+            </div>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Skills &amp; Competencies</div>
+            <table style="width:100%;font-size:13.5px;border-collapse:collapse;color:var(--text2);">
+              <tr><td style="padding:4px 0;width:42%;color:var(--text3);font-weight:500;">Computer Skills</td><td>: MS Office, Smart Board, Google Classroom</td></tr>
+              <tr><td style="padding:4px 0;color:var(--text3);font-weight:500;">Languages Known</td><td>: English (Fluent), Hindi, Marathi</td></tr>
+            </table>
+
+            <div style="margin:14px 0 7px;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.8px;color:var(--accent);border-bottom:1px solid var(--border);padding-bottom:5px;">Declaration</div>
+            <div style="font-size:13px;color:var(--text2);">I hereby declare that all the information furnished above is true and correct to the best of my knowledge and belief.</div>
+            <div style="margin-top:18px;display:flex;justify-content:space-between;font-size:13.5px;color:var(--text2);">
+              <div>Place: Pune<br>Date: 10 March 2026</div>
+              <div style="text-align:right;">__________________<br><strong>Priya Desai</strong></div>
+            </div>
+          </div>
+        </div>
+
+        </div><!-- close examples tab -->
+
+      <!-- SCORING TAB -->
+      <div class="tab-content" id="tab-job-scoring">
+        <div class="card">
+          <div class="card-title">How CBSE Awards Marks</div>
+          <table class="scoring-table">
+            <thead>
+              <tr><th>Parameter</th><th>What Examiners Look For</th><th>Marks</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Format</strong></td><td>All parts present: address, date, subject, salutation, 3 paras, complimentary close, name</td><td><span class="score-chip">1</span></td></tr>
+              <tr><td><strong>Content</strong></td><td>Source mentioned, post named, qualifications relevant, CV reference, interview request</td><td><span class="score-chip">2</span></td></tr>
+              <tr><td><strong>Expression</strong></td><td>Formal tone, grammatical accuracy, appropriate vocabulary, coherence</td><td><span class="score-chip">2</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card" style="background:var(--green-soft);border-color:rgba(26,127,75,0.2)">
+          <div class="card-title" style="color:var(--green)">Full 5-Mark Strategy</div>
+          <ul class="check-list">
+            <li>Write all format elements — examiners tick each one.</li>
+            <li>Mention source: newspaper + date = instant credibility point.</li>
+            <li>Para 2 should have at least 2 specific credentials (subject, score, skill).</li>
+            <li>Use varied formal phrases: "I wish to apply", "I beg to state", "I am confident".</li>
+            <li>End with "Enc: Bio-Data" — this is a separate mark trigger.</li>
+            <li>No spelling mistakes in format parts (address, subject, salutation).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TIPS TAB -->
+      <div class="tab-content" id="tab-job-tips">
+        <div class="card">
+          <div class="card-title">Killer Opening Lines (Ready to Use)</div>
+          <div class="format-box" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:2;">
+            1. "I am writing in response to the advertisement published in <em>[newspaper]</em> dated <em>[date]</em>…"<br>
+            2. "With reference to your advertisement in <em>[newspaper]</em>, I wish to apply for the post of…"<br>
+            3. "I beg to apply for the post of ___ advertised in <em>[newspaper]</em> on <em>[date]</em>…"
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Power Phrases for Para 2</div>
+          <div class="format-box" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:2;">
+            • "I have scored ___% in my CBSE Class XII Board Examinations…"<br>
+            • "I am proficient in ___ and have hands-on experience in ___…"<br>
+            • "During my time at ___, I developed strong skills in ___…"<br>
+            • "I hold a degree/certificate in ___ from ___ University…"
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-title">Closing Line Bank</div>
+          <div class="format-box" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:2;">
+            • "I shall be grateful if you consider my candidature and call me for an interview."<br>
+            • "I look forward to the opportunity of a personal interview at your convenience."<br>
+            • "Enclosed herewith is my Bio-Data for your kind reference and consideration."
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ARTICLE WRITING PAGE -->
+    <div class="page" id="page-article">
+      <div class="page-header">
+        <div class="page-tag">✏️ Writing Section</div>
+        <h1 class="page-title">Article Writing</h1>
+        <p class="page-desc">Articles are written for newspapers, magazines, or school journals on a given topic. Tests your ability to express, inform, and engage readers.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 6 Marks</div>
+          <div class="marks-chip words">📝 150–200 words</div>
+          <div class="marks-chip time">⏱ 15 min</div>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'art-format')">Format</div>
+        <div class="tab" onclick="switchTab(this,'art-examples')">Examples</div>
+        <div class="tab" onclick="switchTab(this,'art-tips')">Tips</div>
+      </div>
+
+      <div class="tab-content active" id="tab-art-format">
+        <div class="card">
+          <div class="card-title">Article Format</div>
+          <div class="format-box">
+            <div class="label">Article Structure</div>
+            <div class="format-line"><span class="format-key">Title / Heading</span><span class="format-val">Bold, catchy, relevant — centered</span></div>
+            <div class="format-line"><span class="format-key">By-line</span><span class="format-val">By [Your Name / Given Name]</span></div>
+            <br>
+            <div class="format-line"><span class="format-key">Paragraph 1 (Hook)</span><span class="format-val">Start with a question, fact, or quote — introduce the topic</span></div>
+            <div class="format-line"><span class="format-key">Para 2 (Body 1)</span><span class="format-val">Main point 1 — causes, background, statistics</span></div>
+            <div class="format-line"><span class="format-key">Para 3 (Body 2)</span><span class="format-val">Main point 2 — effects, opinions, examples</span></div>
+            <div class="format-line"><span class="format-key">Para 4 (Conclusion)</span><span class="format-val">Solutions, call to action, forward-looking statement</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-art-examples">
+        <div class="letter-box">
+          <div class="ex-tag">Example 1</div>
+          <div class="letter-content">
+            <div style="text-align:center;margin-bottom:4px;font-family:'DM Serif Display',serif;font-size:20px;"><strong>Social Media: A Boon or a Bane?</strong></div>
+            <div style="text-align:center;font-size:13px;color:var(--text3);margin-bottom:16px;">By Arjun Mehta</div>
+            <div class="para">Are we truly connecting with the world, or merely scrolling through an illusion? Social media, which began as a tool for communication, has now become the lens through which millions perceive reality. With over 5 billion active users globally, its influence is undeniable — but so are its consequences.</div>
+            <div class="para">On the one hand, social media has democratised information, empowered activists, and bridged geographical distances. Businesses have found new markets, artists have found audiences, and ordinary citizens have found their voices. It has been a lifeline especially during the COVID-19 pandemic when physical connectivity was severed.</div>
+            <div class="para">On the other hand, cyberbullying, misinformation, and digital addiction pose serious threats — especially to teenagers. Studies indicate that excessive social media use correlates with anxiety and poor self-esteem among adolescents. The algorithm, designed to maximise engagement, often amplifies outrage over reason.</div>
+            <div class="para">The solution lies not in abandoning these platforms, but in using them mindfully. Digital literacy must be integrated into school curricula. Parents and educators must guide young users to treat social media as a tool — not a lifestyle. Used wisely, it remains one of the most powerful forces for positive change in modern society.</div>
+          </div>
+        </div>
+
+        <div class="letter-box">
+          <div class="ex-tag">Example 2</div>
+          <div class="letter-content">
+            <div style="text-align:center;margin-bottom:4px;font-family:'DM Serif Display',serif;font-size:20px;"><strong>The Silent Crisis: Mental Health Among Students</strong></div>
+            <div style="text-align:center;font-size:13px;color:var(--text3);margin-bottom:16px;">By Rhea Kapoor</div>
+            <div class="para">"Education is not the learning of facts, but the training of the mind to think," said Einstein. Yet today, millions of students struggle not with academic concepts but with anxiety, depression, and burnout — a crisis hidden behind the façade of competitive examinations and mounting expectations.</div>
+            <div class="para">According to a WHO report, one in seven Indian adolescents aged 13–17 years experiences a mental health disorder. Academic pressure, fear of failure, parental expectations, and social isolation are among the leading triggers. Board examinations, in particular, are notorious for causing extreme stress — sometimes with tragic consequences.</div>
+            <div class="para">The problem is further compounded by stigma. In many Indian households, mental health is still considered a sign of weakness. Students suffer in silence, unwilling to seek help for fear of judgment. Schools often lack trained counsellors, and parents rarely recognise early warning signs.</div>
+            <div class="para">It is time we reimagined education as a holistic experience — one that nurtures emotional intelligence alongside academic ability. Schools must appoint qualified counsellors, parents must foster open conversations, and students must be taught that seeking help is an act of strength, not weakness. Our children's minds deserve as much care as their report cards.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" id="tab-art-tips">
+        <div class="tips-grid">
+          <div class="tip"><div class="tip-icon">🔥</div><div class="tip-text"><strong>Start with a Hook</strong>Use a rhetorical question, shocking statistic, or powerful quote in the very first line.</div></div>
+          <div class="tip"><div class="tip-icon">🎨</div><div class="tip-text"><strong>Choose a Catchy Title</strong>Avoid "Article on Pollution". Instead: "Breath at Risk: India's Battle Against Pollution".</div></div>
+          <div class="tip"><div class="tip-icon">📐</div><div class="tip-text"><strong>4 Paragraphs Rule</strong>Intro → Body 1 → Body 2 → Conclusion. Never merge or skip.</div></div>
+          <div class="tip"><div class="tip-icon">💬</div><div class="tip-text"><strong>Use Discourse Markers</strong>"Furthermore", "On the other hand", "Consequently", "In conclusion" — show logical flow.</div></div>
+          <div class="tip"><div class="tip-icon">📊</div><div class="tip-text"><strong>Add a Statistic</strong>One well-placed fact/statistic gives your article authority and earns expression marks.</div></div>
+          <div class="tip"><div class="tip-icon">✍️</div><div class="tip-text"><strong>Active Voice</strong>Write mostly in active voice. "The government must act" not "Action must be taken by the government".</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- NOTICE WRITING PAGE -->
+    <div class="page" id="page-notice">
+      <div class="page-header">
+        <div class="page-tag">📌 Writing Section</div>
+        <h1 class="page-title">Notice Writing</h1>
+        <p class="page-desc">A notice is a formal announcement meant to inform a specific group. Common sources: school, housing society, club, organisation.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 4 Marks</div>
+          <div class="marks-chip words">📝 50–70 words</div>
+          <div class="marks-chip time">⏱ 8 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Notice Format</div>
+        <div class="format-box">
+          <div class="label">Notice Template</div>
+          <div class="format-line"><span class="format-key">Name of Organisation</span><span class="format-val">ABC Senior Secondary School, Delhi</span></div>
+          <div class="format-line"><span class="format-key">NOTICE</span><span class="format-val">(centred, bold, uppercase)</span></div>
+          <div class="format-line"><span class="format-key">Date</span><span class="format-val">10 March 2026</span></div>
+          <div class="format-line"><span class="format-key">Title / Heading</span><span class="format-val">Annual Sports Day / Lost and Found / etc.</span></div>
+          <br>
+          <div class="format-line"><span class="format-key">Body (5 Ws)</span><span class="format-val">What, Who, When, Where, Why</span></div>
+          <br>
+          <div class="format-line"><span class="format-key">Name</span><span class="format-val">Priya Singh</span></div>
+          <div class="format-line"><span class="format-key">Designation</span><span class="format-val">Head Girl / Secretary / Principal</span></div>
+        </div>
+      </div>
+
+      <div class="letter-box">
+        <div class="ex-tag">Example</div>
+        <div class="letter-content">
+          <div style="text-align:center;font-weight:600;font-size:14px;">Delhi Public School, Dwarka</div>
+          <div style="text-align:center;font-weight:800;font-size:15px;letter-spacing:2px;margin:6px 0;">NOTICE</div>
+          <div>Date: 10 March 2026</div>
+          <div style="font-weight:600;margin:8px 0;">Annual Science Exhibition</div>
+          <div class="para">All students of Classes IX to XII are hereby informed that the Annual Science Exhibition will be held on <strong>20 March 2026 (Friday)</strong> from 10:00 a.m. to 1:00 p.m. in the School Auditorium. Students who wish to participate must register their names with their respective class teachers by <strong>14 March 2026</strong>. Interested participants should submit a project outline along with their registration. For further details, contact the Science Department.</div>
+          <div style="margin-top:12px;">Arjun Verma<br><em>Head Boy</em></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Do's & Don'ts</div>
+        <div class="two-col">
+          <div class="do-dont do">
+            <h4>Always Include</h4>
+            <ul>
+              <li>Name of school / organisation at top</li>
+              <li>The word NOTICE in caps and centred</li>
+              <li>Date on left side</li>
+              <li>Clear heading/title</li>
+              <li>All 5 Ws in the body</li>
+              <li>Name + Designation at bottom</li>
+            </ul>
+          </div>
+          <div class="do-dont dont">
+            <h4>Never Do</h4>
+            <ul>
+              <li>Don't exceed 50–70 words</li>
+              <li>Don't write in first person ("I am pleased...")</li>
+              <li>Don't add unnecessary details</li>
+              <li>Don't miss the date</li>
+              <li>Don't forget to draw a box around the notice</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPEECH WRITING PAGE -->
+    <div class="page" id="page-speech">
+      <div class="page-header">
+        <div class="page-tag">🎙️ Writing Section</div>
+        <h1 class="page-title">Speech Writing</h1>
+        <p class="page-desc">A speech is a formal piece of writing meant to be delivered orally. It must engage the audience, present a clear argument, and end memorably.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 6 Marks</div>
+          <div class="marks-chip words">📝 150–200 words</div>
+          <div class="marks-chip time">⏱ 15 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Speech Format</div>
+        <div class="format-box">
+          <div class="label">Speech Structure</div>
+          <div class="format-line"><span class="format-key">Title</span><span class="format-val">Speech on [Topic]</span></div>
+          <div class="format-line"><span class="format-key">Address</span><span class="format-val">Good morning / Good afternoon, Respected Principal, Teachers, and Dear Friends,</span></div>
+          <div class="format-line"><span class="format-key">Introduction</span><span class="format-val">State your name + topic. Hook the audience.</span></div>
+          <div class="format-line"><span class="format-key">Body</span><span class="format-val">2–3 paragraphs with main points, evidence, examples</span></div>
+          <div class="format-line"><span class="format-key">Conclusion</span><span class="format-val">Call to action / memorable closing line</span></div>
+          <div class="format-line"><span class="format-key">Thank You</span><span class="format-val">Thank you for your patient hearing.</span></div>
+        </div>
+      </div>
+
+      <div class="letter-box">
+        <div class="ex-tag">Example</div>
+        <div class="letter-content">
+          <div style="text-align:center;font-weight:700;margin-bottom:12px;">Speech on Importance of Environmental Conservation</div>
+          <div class="para">Good morning, Respected Principal, Teachers, and Dear Fellow Students,</div>
+          <div class="para">I, Nisha Rao of Class XII B, stand before you today to speak on a topic that is no longer merely academic — it is a matter of survival: <strong>Environmental Conservation</strong>.</div>
+          <div class="para">Our planet is warming at an unprecedented rate. Glaciers are melting, sea levels are rising, and species are disappearing faster than scientists can document them. The IPCC has warned that we have less than a decade to limit global warming to 1.5°C — or face irreversible consequences. And yet, we continue deforesting, polluting, and consuming as if the Earth is infinite.</div>
+          <div class="para">But there is hope. Renewable energy adoption is accelerating. Communities around the world are planting billions of trees. Individuals — including young people like us — are demanding change. Even small acts, like reducing plastic use, conserving water, or choosing public transport, collectively create massive impact.</div>
+          <div class="para">Friends, we did not inherit this Earth from our ancestors — we are borrowing it from our children. Let us choose wisely what we leave behind.</div>
+          <div class="para">Thank you for your patient hearing.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DEBATE WRITING PAGE -->
+    <div class="page" id="page-debate">
+      <div class="page-header">
+        <div class="page-tag">⚖️ Writing Section</div>
+        <h1 class="page-title">Debate Writing</h1>
+        <p class="page-desc">A debate is a structured argument for or against a given motion. You will be asked to write either FOR or AGAINST a given statement.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 6 Marks</div>
+          <div class="marks-chip words">📝 150–200 words</div>
+          <div class="marks-chip time">⏱ 15 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Debate Format</div>
+        <div class="format-box">
+          <div class="label">Debate Structure</div>
+          <div class="format-line"><span class="format-key">Title</span><span class="format-val">"Motion: [Statement]" — For / Against</span></div>
+          <div class="format-line"><span class="format-key">Address</span><span class="format-val">Respected Chairperson, Honourable Judges, and Dear Audience,</span></div>
+          <div class="format-line"><span class="format-key">Opening</span><span class="format-val">State which side you represent + motion clearly</span></div>
+          <div class="format-line"><span class="format-key">Arguments</span><span class="format-val">3 strong points with evidence/examples for your side</span></div>
+          <div class="format-line"><span class="format-key">Counter</span><span class="format-val">Briefly acknowledge opponent's view, then refute it</span></div>
+          <div class="format-line"><span class="format-key">Conclusion</span><span class="format-val">Restate your position with a memorable one-liner</span></div>
+          <div class="format-line"><span class="format-key">Close</span><span class="format-val">I rest my case. / Thank you.</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Useful Debate Phrases</div>
+        <div class="format-box" style="font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:2.1;">
+          <strong>Opening:</strong> "I stand before you to firmly support / oppose the motion that…"<br>
+          <strong>Adding Points:</strong> "Furthermore… / What is more… / To add to this…"<br>
+          <strong>Refuting:</strong> "My opponents claim… however, the facts suggest otherwise…"<br>
+          <strong>Citing evidence:</strong> "According to… / Research indicates… / Statistics reveal…"<br>
+          <strong>Concluding:</strong> "In light of these compelling arguments, I urge this house to…"
+        </div>
+      </div>
+    </div>
+
+    <!-- REPORT WRITING PAGE -->
+    <div class="page" id="page-report">
+      <div class="page-header">
+        <div class="page-tag">📋 Writing Section</div>
+        <h1 class="page-title">Report Writing</h1>
+        <p class="page-desc">A report is a factual, objective account of an event that has already occurred — written for a newspaper or an authority figure.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 6 Marks</div>
+          <div class="marks-chip words">📝 150–200 words</div>
+          <div class="marks-chip time">⏱ 15 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Report Format</div>
+        <div class="format-box">
+          <div class="label">Newspaper Report / School Report</div>
+          <div class="format-line"><span class="format-key">Headline</span><span class="format-val">Bold, catchy, in Title Case</span></div>
+          <div class="format-line"><span class="format-key">By-line</span><span class="format-val">By [Name], Staff Reporter / School Correspondent</span></div>
+          <div class="format-line"><span class="format-key">Place & Date</span><span class="format-val">Delhi, 10 March: …</span></div>
+          <div class="format-line"><span class="format-key">Lead Para</span><span class="format-val">Who, What, When, Where — answer all in first paragraph</span></div>
+          <div class="format-line"><span class="format-key">Body</span><span class="format-val">Details, quotes, background information</span></div>
+          <div class="format-line"><span class="format-key">Conclusion</span><span class="format-val">Impact, future plans, official statement</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Key Rules for Reports</div>
+        <ul class="check-list">
+          <li>Always use <strong>past tense</strong> (the event has already happened).</li>
+          <li>Write in <strong>third person</strong> — never "I" or "we".</li>
+          <li>Use <strong>reported speech</strong> for quotes: "The Principal stated that…"</li>
+          <li>Be factual and objective — no personal opinions.</li>
+          <li>Start with the most important information (inverted pyramid style).</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- FORMAL LETTER PAGE -->
+    <div class="page" id="page-formal-letter">
+      <div class="page-header">
+        <div class="page-tag">✉️ Writing Section</div>
+        <h1 class="page-title">Formal Letter Writing</h1>
+        <p class="page-desc">Formal letters include letters to the editor, letters of complaint, letters requesting information, or letters to government/school authorities.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 5 Marks</div>
+          <div class="marks-chip words">📝 120–150 words</div>
+          <div class="marks-chip time">⏱ 12 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Formal Letter Format</div>
+        <div class="format-box">
+          <div class="label">General Formal Letter</div>
+          <div class="format-line"><span class="format-key">Sender's Address</span><span class="format-val">Your address (3 lines)</span></div>
+          <div class="format-line"><span class="format-key">Date</span><span class="format-val">Day Month Year</span></div>
+          <div class="format-line"><span class="format-key">Receiver's Details</span><span class="format-val">Name, Designation, Organisation, Address</span></div>
+          <div class="format-line"><span class="format-key">Subject</span><span class="format-val">One clear line — begin with capital letter</span></div>
+          <div class="format-line"><span class="format-key">Salutation</span><span class="format-val">Sir / Madam, (for strangers)</span></div>
+          <div class="format-line"><span class="format-key">Body</span><span class="format-val">Para 1: Purpose | Para 2: Details | Para 3: Request</span></div>
+          <div class="format-line"><span class="format-key">Complimentary Close</span><span class="format-val">Yours faithfully,</span></div>
+          <div class="format-line"><span class="format-key">Signature & Name</span><span class="format-val">Handwritten signature + printed name</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Types of Formal Letters — Quick Guide</div>
+        <table class="scoring-table">
+          <thead><tr><th>Type</th><th>Addressed To</th><th>Key Content</th></tr></thead>
+          <tbody>
+            <tr><td>Letter to Editor</td><td>The Editor, [Newspaper Name]</td><td>Social issue, complaint, appreciation of article</td></tr>
+            <tr><td>Letter of Complaint</td><td>Manager / Authority</td><td>Problem + when it occurred + remedy requested</td></tr>
+            <tr><td>Letter of Enquiry</td><td>Organisation / Institution</td><td>What info you need + why + request for response</td></tr>
+            <tr><td>Order Letter</td><td>Supplier / Company</td><td>Items, quantity, specifications, delivery details</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- READING PASSAGE 1 -->
+    <div class="page" id="page-passage1">
+      <div class="page-header">
+        <div class="page-tag">📖 Reading Section A</div>
+        <h1 class="page-title">Reading Passage I — Factual</h1>
+        <p class="page-desc">A factual/descriptive passage. Questions include Multiple Choice Questions (MCQs), True/False, and Short Answer questions. Tests comprehension and vocabulary.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 12 Marks</div>
+          <div class="marks-chip words">📝 600–900 words</div>
+          <div class="marks-chip time">⏱ 20 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Reading Strategy — Full Marks Approach</div>
+        <ul class="check-list">
+          <li><strong>Skim first (90 sec):</strong> Read headings and first sentence of each paragraph to understand the gist.</li>
+          <li><strong>Read the questions next:</strong> Know what you're looking for before reading in detail.</li>
+          <li><strong>Underline keywords</strong> in the passage as you read carefully.</li>
+          <li><strong>For MCQs:</strong> Eliminate wrong options; find evidence in the passage for the right one.</li>
+          <li><strong>For vocabulary:</strong> Use context clues — read the sentence before and after the word.</li>
+          <li><strong>Write complete sentences</strong> for short answers — one-word answers lose marks.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Sample Passage — Practice Now</div>
+        <div class="passage-text">
+          <p><span class="para-num">1</span>In the dense rainforests of the Amazon basin, a silent revolution is underway. Scientists and conservationists are deploying cutting-edge technology — from drones to AI-powered sound analysis — to monitor biodiversity and detect illegal deforestation in real time. What was once an overwhelming, almost impossible task is gradually becoming manageable, offering a rare glimmer of hope for one of Earth's most critical ecosystems.</p>
+
+          <p><span class="para-num">2</span>The Amazon rainforest, often called the "lungs of the Earth", produces approximately 20% of the world's oxygen and is home to around 10% of all species on the planet. Yet in recent decades, it has faced relentless pressure from logging, agriculture, and mining. Between 2000 and 2020, Brazil lost over 400,000 square kilometres of forest — an area larger than the entire country of Germany. The consequences extend far beyond Brazil's borders, affecting global rainfall patterns, carbon cycles, and climate stability.</p>
+
+          <p><span class="para-num">3</span>Enter the era of "conservation technology." Organisations like the Rainforest Connection (RFCx) have deployed solar-powered listening devices in forest canopies. These devices record ambient sounds and transmit them to AI systems trained to recognise the specific acoustic signature of a chainsaw — a sound noticeably different from natural forest noise. When detected, real-time alerts are sent to forest rangers, enabling rapid response before significant damage occurs. The system has been deployed across nine countries, and its developers claim it can detect a chainsaw up to a kilometre away.</p>
+
+          <p><span class="para-num">4</span>Drones are another weapon in the conservationist's arsenal. Equipped with high-resolution cameras and thermal sensors, they can survey vast stretches of forest in hours — work that would take ground teams weeks. In some programmes, drones are even used to fire seed pods into deforested areas, accelerating reforestation at scale. Meanwhile, satellite imagery processed through machine learning algorithms can now detect changes in tree cover with remarkable precision, flagging newly cleared areas within 24 hours.</p>
+
+          <p><span class="para-num">5</span>Yet technology alone cannot save the rainforest. Experts caution that without robust policy frameworks, community involvement, and sustained funding, even the most sophisticated tools remain ineffective. Indigenous communities, who have protected these forests for centuries, must be recognised as equal partners in conservation — not afterthoughts. Their traditional ecological knowledge, combined with modern technology, represents the most powerful conservation toolkit available.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Questions — Based on Passage Above</div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">1</div>
+            <div class="q-text">What is the primary purpose of the AI-powered devices deployed by Rainforest Connection in the Amazon? <em>(1 mark)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">The AI-powered devices are deployed to detect the sound of chainsaws — used in illegal logging — and send real-time alerts to forest rangers so they can respond rapidly before significant deforestation occurs.</div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">2</div>
+            <div class="q-text">According to the passage, how much forest did Brazil lose between 2000 and 2020? What does the author compare this area to? <em>(2 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">Brazil lost over 400,000 square kilometres of forest between 2000 and 2020. The author compares this area to the total land area of the country of Germany, using the comparison to emphasise the enormous scale of deforestation.</div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">3</div>
+            <div class="q-text">Find a word from paragraph 3 that means "the quality of a sound that distinguishes it from others." <em>(1 mark)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content"><strong>Acoustic signature</strong> (Para 3: "the specific acoustic signature of a chainsaw")</div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">4</div>
+            <div class="q-text">The author suggests that technology alone is sufficient to solve the deforestation crisis. True or False? Justify your answer with evidence from the passage. <em>(2 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content"><strong>False.</strong> The author clearly states in paragraph 5 that "technology alone cannot save the rainforest." The passage further emphasises that "robust policy frameworks, community involvement, and sustained funding" are also needed, and that Indigenous communities must be included as equal partners in conservation efforts.</div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">5</div>
+            <div class="q-text">List any TWO ways in which drones are used for conservation in the Amazon, as described in the passage. <em>(2 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              (i) Drones equipped with high-resolution cameras and thermal sensors are used to survey vast stretches of forest quickly.<br>
+              (ii) Drones are used to fire seed pods into deforested areas to accelerate reforestation at scale.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- READING PASSAGE 2 -->
+    <div class="page" id="page-passage2">
+      <div class="page-header">
+        <div class="page-tag">📝 Reading Section A</div>
+        <h1 class="page-title">Reading Passage II — Discursive / Literary</h1>
+        <p class="page-desc">A discursive or argumentative passage. Questions typically include note-making and summary writing, worth 8 marks total.</p>
+        <div class="marks-row">
+          <div class="marks-chip marks">⭐ 10 Marks</div>
+          <div class="marks-chip words">📝 500–700 words</div>
+          <div class="marks-chip time">⏱ 18 min</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Note-Making Format — Never Miss This</div>
+        <div class="format-box">
+          <div class="label">Note-Making Structure (5 marks)</div>
+          <div class="format-line"><span class="format-key">Title</span><span class="format-val">Short, relevant, centred — (½ mark)</span></div>
+          <br>
+          <div class="format-line"><span class="format-key">1. Main Heading</span><span class="format-val">(based on para 1-2)</span></div>
+          <div class="format-line"><span class="format-key">1.1 Sub-point</span><span class="format-val"></span></div>
+          <div class="format-line"><span class="format-key">1.2 Sub-point</span><span class="format-val"></span></div>
+          <br>
+          <div class="format-line"><span class="format-key">2. Main Heading</span><span class="format-val">(based on para 3-4)</span></div>
+          <div class="format-line"><span class="format-key">2.1 Sub-point</span><span class="format-val"></span></div>
+          <div class="format-line"><span class="format-key">2.2 Sub-point</span><span class="format-val"></span></div>
+          <br>
+          <div class="format-line"><span class="format-key">Abbreviations Key</span><span class="format-val">List 4–5 abbreviations used in notes — (1 mark)</span></div>
+          <br>
+          <div class="format-line"><span class="format-key">Summary</span><span class="format-val">3rd person, 80 words, based ONLY on your notes — (3 marks)</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-title">Note-Making Rules</div>
+        <ul class="check-list">
+          <li>Use <strong>abbreviations</strong> throughout — list them separately. E.g., govt = government, env = environment.</li>
+          <li>Write in <strong>phrases, not full sentences</strong> in the notes section.</li>
+          <li>Use <strong>proper numbering</strong>: 1, 1.1, 1.2, 2, 2.1 — examiners check hierarchy.</li>
+          <li>The <strong>summary must be in third person</strong> and derived only from your notes.</li>
+          <li>Summary: exactly 80 words — aim for 75–85. Count carefully.</li>
+          <li>Do NOT lift sentences from the passage into summary — paraphrase.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- PRACTICE PAGE -->
+    <div class="page" id="page-practice">
+      <div class="page-header">
+        <div class="page-tag">🎯 Practice</div>
+        <h1 class="page-title">Practice Questions</h1>
+        <p class="page-desc">Topic-wise questions with model answers. Click any question to reveal the answer and check your response.</p>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="switchTab(this,'prac-job')">Job Application</div>
+        <div class="tab" onclick="switchTab(this,'prac-article')">Article</div>
+        <div class="tab" onclick="switchTab(this,'prac-notice')">Notice</div>
+        <div class="tab" onclick="switchTab(this,'prac-mixed')">Mixed</div>
+      </div>
+
+      <!-- Job Application Questions -->
+      <div class="tab-content active" id="tab-prac-job">
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">1</div>
+            <div class="q-text">You are Kavya Sharma, residing at 23, Green Park, New Delhi – 110016. You saw an advertisement in The Hindustan Times dated 5 March 2026 for the post of <strong>Graphic Designer</strong> at Creative Minds Agency, Nehru Place. Write a job application letter applying for this post. <em>(5 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                23, Green Park<br>New Delhi – 110016<br><br>
+                6 March 2026<br><br>
+                The Creative Director<br>Creative Minds Agency<br>Nehru Place, New Delhi – 110019<br><br>
+                <strong>Subject:</strong> Application for the post of Graphic Designer<br><br>
+                Sir / Madam,<br><br>
+                I write with reference to your advertisement published in <em>The Hindustan Times</em> dated 5 March 2026, seeking a Graphic Designer. I am keen to apply for this position and believe my skills and academic background make me a strong candidate.<br><br>
+                I have recently completed my Bachelor of Design (Visual Communication) from the National Institute of Design, Ahmedabad, with a CGPA of 8.7/10. I am proficient in Adobe Photoshop, Illustrator, InDesign, and Figma. During my internship at Pixel Studio, I developed branding materials and social media creatives for over ten clients, receiving commendation for originality and timely delivery.<br><br>
+                I am enthusiastic about contributing to your creative team and am confident that my portfolio demonstrates the quality and versatility you seek. Enclosed herewith is my detailed Bio-Data for your consideration. I shall be grateful if you grant me an opportunity to appear for an interview at your convenience.<br><br>
+                Yours faithfully,<br><strong>Kavya Sharma</strong><br><br>
+                <em>Enc: Bio-Data</em>
+              </div>
+              <div style="margin-top:12px;font-size:13px;color:var(--green);font-weight:600;">✅ Why this gets 5/5: Complete format (1) + Source mentioned, post named, 2 credentials, CV enclosed (2) + Formal vocabulary, varied sentence structure, no errors (2)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">2</div>
+            <div class="q-text">You are Rohan Verma, 45, Sector 12, Chandigarh – 160012. Write an application to the HR Manager of Healthwise Clinics Pvt. Ltd. for the post of <strong>Medical Receptionist</strong> advertised in The Tribune on 8 March 2026. <em>(5 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                45, Sector 12<br>Chandigarh – 160012<br><br>
+                9 March 2026<br><br>
+                The HR Manager<br>Healthwise Clinics Pvt. Ltd.<br>Sector 17, Chandigarh – 160017<br><br>
+                <strong>Subject:</strong> Application for the post of Medical Receptionist<br><br>
+                Sir / Madam,<br><br>
+                I am writing in response to your advertisement for the position of Medical Receptionist, published in <em>The Tribune</em> dated 8 March 2026. I am eager to apply for this role and am confident that my interpersonal skills and relevant training make me well-suited for the position.<br><br>
+                I hold a Diploma in Hospital Administration from Chandigarh Institute of Management (2025) and have completed a six-month internship at Fortis Hospital, where I handled patient registration, appointment scheduling, and billing processes. I am adept at MS Office, hospital management software, and am fluent in English, Hindi, and Punjabi. I am known for my calm temperament, attention to detail, and patient-centred approach.<br><br>
+                I am highly motivated to be a part of Healthwise Clinics and to contribute to a positive patient experience. My Bio-Data is enclosed herewith for your kind perusal. I would greatly appreciate the opportunity to discuss my candidature in an interview at a time convenient to you.<br><br>
+                Yours faithfully,<br><strong>Rohan Verma</strong><br><br>
+                <em>Enc: Bio-Data</em>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">3</div>
+            <div class="q-text">You are Meera Singh, 7/B, Civil Lines, Jaipur. Apply for the post of <strong>Junior Journalist</strong> at The Rajasthan Daily, MG Road, Jaipur. The vacancy was advertised in the paper on 7 March 2026. <em>(5 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                7/B, Civil Lines<br>Jaipur – 302006<br><br>
+                8 March 2026<br><br>
+                The Editor<br>The Rajasthan Daily<br>MG Road, Jaipur – 302001<br><br>
+                <strong>Subject:</strong> Application for the post of Junior Journalist<br><br>
+                Sir / Madam,<br><br>
+                With reference to the advertisement published in <em>The Rajasthan Daily</em> dated 7 March 2026, I wish to apply for the post of Junior Journalist. I believe my academic background, writing experience, and genuine passion for public interest journalism qualify me for this position.<br><br>
+                I am a graduate in Mass Communication and Journalism from the University of Rajasthan (2025), having secured 82% aggregate marks. I have served as the Editor of my college newsletter and have had two investigative articles published in the college journal on water scarcity and urban waste management. I am proficient in field reporting, content writing, and basic photojournalism, with a working knowledge of digital publishing tools.<br><br>
+                I am eager to work with your esteemed publication and contribute to impactful, credible journalism. I have enclosed my Bio-Data and writing samples for your reference. Kindly grant me an interview at your earliest convenience.<br><br>
+                Yours faithfully,<br><strong>Meera Singh</strong><br><br>
+                <em>Enc: Bio-Data, Writing Samples</em>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article Questions -->
+      <div class="tab-content" id="tab-prac-article">
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">1</div>
+            <div class="q-text">Write an article in 150–200 words on <strong>"The Growing Problem of E-Waste in India"</strong> for your school magazine. You are Aarav Joshi, Class XII. <em>(6 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:700;font-size:16px;margin-bottom:4px;">E-Waste: India's Growing Digital Burden</div>
+                <div style="text-align:center;color:var(--text3);font-size:13px;margin-bottom:12px;">By Aarav Joshi</div>
+                Every time we upgrade to a newer phone, we rarely think about where the old one goes. India, the world's third-largest producer of electronic waste, generates over 3.2 million tonnes of e-waste annually — and only a fraction of it is recycled responsibly.<br><br>
+                Electronic devices contain hazardous substances such as lead, mercury, and cadmium. When dumped in landfills or dismantled informally — as is common in cities like Delhi, Bangalore, and Mumbai — these toxins leach into soil and groundwater, posing serious health risks to waste workers and local communities alike.<br><br>
+                The root of the problem lies in our disposable culture, poor regulatory enforcement, and lack of public awareness. While India has extended producer responsibility (EPR) policies in place, implementation remains weak. Consumers continue to discard gadgets casually, unaware of certified e-waste recycling channels.<br><br>
+                The solution demands collective action: manufacturers must design for recyclability, governments must enforce EPR strictly, and citizens must use certified e-waste drop-off points. Our digital revolution must not come at the cost of our environment.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">2</div>
+            <div class="q-text">Write an article on <strong>"Online Education vs Traditional Classroom Learning"</strong> for a national newspaper. You are Shreya Nair, a student. <em>(6 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:700;font-size:16px;margin-bottom:4px;">Screens vs Classrooms: The Education Debate</div>
+                <div style="text-align:center;color:var(--text3);font-size:13px;margin-bottom:12px;">By Shreya Nair</div>
+                When the COVID-19 pandemic shuttered schools overnight, millions of students swapped chalkboards for computer screens. Today, years later, the debate rages on: can online education truly replace the traditional classroom?<br><br>
+                Online education offers undeniable advantages — flexibility, accessibility, and a vast library of resources available at any time. Students in remote areas can access quality teaching that was once out of reach. Self-paced learning suits students with different learning speeds, and costs are often significantly lower.<br><br>
+                And yet, the classroom offers something no algorithm can replicate — human connection. Teachers read body language, offer spontaneous encouragement, and adapt in real time to a struggling student. Group activities, laboratory experiments, and peer discussions build not just knowledge, but character. Studies consistently show that students in physical classrooms retain information better and report higher motivation.<br><br>
+                The answer, perhaps, lies in a hybrid model — harnessing technology's reach while preserving the irreplaceable warmth of the classroom. Education, after all, is not just about content. It is about forming curious, empathetic human beings — and that requires more than a good Wi-Fi connection.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">3</div>
+            <div class="q-text">Write an article in 150–200 words on <strong>"Road Safety in India: A National Emergency"</strong>. You are Rishi Kapoor, a student. <em>(6 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:700;font-size:16px;margin-bottom:4px;">Road Safety: India's Invisible Emergency</div>
+                <div style="text-align:center;color:var(--text3);font-size:13px;margin-bottom:12px;">By Rishi Kapoor</div>
+                Every four minutes, someone dies on India's roads. With over 1.5 lakh road fatalities recorded in 2023 alone, India has earned the grim distinction of having the world's highest number of road accident deaths — a crisis hidden beneath the noise of daily commutes and morning traffic reports.<br><br>
+                The causes are manifold: speeding, drunk driving, distracted driving (particularly mobile phone use), poor road infrastructure, and rampant disregard for traffic signals. Pedestrians and two-wheeler riders are the most vulnerable, accounting for over 60% of fatalities. In rural areas, poorly maintained roads and inadequate lighting compound the danger.<br><br>
+                While the Motor Vehicles (Amendment) Act, 2019 increased penalties significantly — and did result in a temporary decline in violations — enforcement remains inconsistent. More critically, driver education and road safety awareness are alarmingly lacking in school curricula and driving licence tests.<br><br>
+                Road safety is not merely a traffic issue — it is a public health emergency. It demands urgent reforms: stricter enforcement, better road engineering, mandatory safety education, and a cultural shift towards responsible driving. Every life lost on our roads is preventable. It is time we treated it as such.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Notice Questions -->
+      <div class="tab-content" id="tab-prac-notice">
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">1</div>
+            <div class="q-text">You are Riya, the Cultural Secretary of Sunrise Public School, Delhi. Write a notice informing students about the <strong>Annual Cultural Festival</strong> to be held on 25 March 2026. <em>(4 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:600;">Sunrise Public School, New Delhi</div>
+                <div style="text-align:center;font-weight:800;letter-spacing:2px;margin:4px 0;">NOTICE</div>
+                <div>Date: 10 March 2026</div>
+                <div style="font-weight:600;margin:8px 0;">Annual Cultural Festival — "Utsav 2026"</div>
+                All students of Classes VI to XII are informed that the Annual Cultural Festival, <em>Utsav 2026</em>, will be held on <strong>25 March 2026 (Wednesday)</strong> from 9:00 a.m. onwards in the School Auditorium. Events include dance, drama, music, and art competitions. Students wishing to participate must register with the Cultural Secretary by <strong>18 March 2026</strong>. A nominal entry fee of ₹50 per event applies. Attendance of all students as audience is compulsory.
+                <div style="margin-top:12px;">Riya<br><em>Cultural Secretary</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">2</div>
+            <div class="q-text">As the Secretary of Green Valley Residents' Welfare Association, write a notice about a <strong>Tree Plantation Drive</strong> to be organised in the society on 22 March 2026 (World Water Day). <em>(4 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:600;">Green Valley Residents' Welfare Association</div>
+                <div style="text-align:center;font-weight:800;letter-spacing:2px;margin:4px 0;">NOTICE</div>
+                <div>Date: 10 March 2026</div>
+                <div style="font-weight:600;margin:8px 0;">Tree Plantation Drive — World Environment Day</div>
+                All residents are cordially invited to participate in a <strong>Tree Plantation Drive</strong> to be organised on <strong>22 March 2026 (Sunday)</strong> at 7:30 a.m. in the society's common garden area (Block C). Saplings of native tree species will be provided free of cost. Residents are requested to bring their own gardening gloves, if possible. Refreshments will be served. Your participation will make our community greener and our air cleaner. Kindly confirm attendance with the undersigned by 20 March 2026.
+                <div style="margin-top:12px;">Vikram Anand<br><em>Secretary, GVRWA</em></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mixed Questions -->
+      <div class="tab-content" id="tab-prac-mixed">
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">1</div>
+            <div class="q-text">Write a <strong>speech</strong> to be delivered at your school's morning assembly on the topic <strong>"Importance of Mental Health Among Teenagers"</strong>. You are Ananya, Student Council President. <em>(6 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:700;margin-bottom:10px;">Speech on Mental Health Among Teenagers</div>
+                Good morning, Respected Principal, Teachers, and my dear fellow students,<br><br>
+                I am Ananya, your Student Council President, and today I speak on something we often whisper about but rarely discuss openly: <strong>mental health</strong>.<br><br>
+                We live in a world that celebrates achievement and quietly stigmatises struggle. We are told to be resilient, to push through — but no one teaches us how to process the weight of expectations, the ache of comparison, or the loneliness that can exist even in a crowded classroom. According to UNICEF, one in seven adolescents globally experiences a mental disorder. Yet most never seek help — because they are afraid of being called weak.<br><br>
+                Friends, your mind is not a machine. It needs rest, care, and honest conversation. If you are struggling — please talk. To a counsellor, a friend, a parent, or a teacher. There is no shame in saying "I am not okay." In fact, it takes immense courage.<br><br>
+                Let us build a school where every student feels seen, heard, and valued — not just for their grades, but for who they are. Mental health is not a luxury. It is a right.<br><br>
+                Thank you for your patient hearing.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">2</div>
+            <div class="q-text">Write a <strong>debate</strong> (FOR the motion) on: <strong>"This house believes that examinations should be abolished."</strong> You are Sahil Gupta. <em>(6 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                <div style="text-align:center;font-weight:700;margin-bottom:10px;">Motion: Examinations Should Be Abolished — FOR</div>
+                Respected Chairperson, Honourable Judges, and Dear Audience,<br><br>
+                I, Sahil Gupta, stand firmly in support of the motion: <strong>This house believes that examinations should be abolished.</strong><br><br>
+                Examinations, as they exist today, are fundamentally flawed instruments of assessment. They reduce three hundred days of learning to three hours of rote recall, reward memory over understanding, and punish creativity with wrong answers. Albert Einstein — who would likely have failed a standardised test on "creative thinking" — rightly said, "Imagination is more important than knowledge."<br><br>
+                The psychological damage is irrefutable. Every year, students in India — particularly during Board examination season — report extreme anxiety, sleep disorders, and tragically, instances of self-harm. This is not a byproduct of education; it is an indictment of a system that values scores over souls.<br><br>
+                My opponents will argue that examinations ensure accountability. I submit that continuous assessment, portfolios, projects, and presentations assess a student's true abilities far more holistically — and without the collateral damage of a single high-stakes test.<br><br>
+                Abolish examinations. Not because learning is unimportant, but because how we measure it matters enormously. I rest my case.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-card" onclick="toggleQ(this)">
+          <div class="question-header">
+            <div class="q-num">3</div>
+            <div class="q-text">Write a <strong>formal letter</strong> to the Editor of The Daily News about the increasing menace of <strong>noise pollution in residential areas</strong>. You are Neha Saxena, 14, Lajpat Nagar, New Delhi. <em>(5 marks)</em></div>
+            <div class="q-toggle">⌄</div>
+          </div>
+          <div class="question-answer">
+            <div class="answer-label">✓ Model Answer</div>
+            <div class="answer-content">
+              <div class="letter-mini">
+                14, Lajpat Nagar<br>New Delhi – 110024<br><br>
+                10 March 2026<br><br>
+                The Editor<br>The Daily News<br>Connaught Place, New Delhi – 110001<br><br>
+                <strong>Subject:</strong> Noise Pollution in Residential Areas — An Urgent Concern<br><br>
+                Sir,<br><br>
+                Through the columns of your esteemed newspaper, I wish to draw attention to the growing and largely ignored menace of noise pollution in residential neighbourhoods across Delhi.<br><br>
+                Residents of areas like Lajpat Nagar are subjected to incessant noise from construction sites, blaring loudspeakers, honking vehicles, and late-night commercial establishments on a daily basis. The prescribed permissible noise limit for residential areas is 55 dB during the day and 45 dB at night — levels that are routinely and flagrantly violated with complete impunity. The consequences are not trivial: studies link chronic noise exposure to hypertension, sleep disorders, impaired cognitive function in children, and heightened stress levels.<br><br>
+                I urge the concerned municipal authorities to enforce noise pollution norms strictly, conduct periodic noise level monitoring, and take punitive action against persistent violators. The right to a peaceful living environment is not a privilege — it is enshrined in our constitutional right to life.<br><br>
+                I hope your publication will help amplify this concern and prompt the authorities to act.<br><br>
+                Yours faithfully,<br><strong>Neha Saxena</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /content -->
+</main>
+
+<script>
+  function showPage(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+
+    // Update breadcrumb
+    const labels = {
+      home: 'Home', 'job-application': 'Job Application', article: 'Article Writing',
+      notice: 'Notice Writing', speech: 'Speech Writing', debate: 'Debate Writing',
+      report: 'Report Writing', 'formal-letter': 'Formal Letter', passage1: 'Reading Passage I',
+      passage2: 'Reading Passage II', practice: 'Practice Questions'
+    };
+    document.getElementById('breadcrumb').textContent = labels[id] || id;
+
+    // Activate nav item
+    const navItems = document.querySelectorAll('.nav-item');
+    navItems.forEach(item => {
+      if (item.getAttribute('onclick') && item.getAttribute('onclick').includes("'" + id + "'")) {
+        item.classList.add('active');
+      }
+    });
+
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function switchTab(el, tabId) {
+    const parent = el.closest('.page') || el.closest('.content');
+    // Find tabs container
+    const tabsContainer = el.parentElement;
+    tabsContainer.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+
+    // Find all tab-contents in the same page
+    const page = el.closest('.page') || document.querySelector('.page.active');
+    page.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+    const target = document.getElementById('tab-' + tabId);
+    if (target) target.classList.add('active');
+  }
+
+  function toggleQ(card) {
+    card.classList.toggle('open');
+  }
+
+  // Initial state
+  showPage('home');
+</script>
+</body>
+</html>
